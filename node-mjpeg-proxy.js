@@ -16,11 +16,21 @@ Proxy = exports.Proxy = function (srcURL, options) {
   var audienceServer = options.audienceServer || http.createServer();
   var audienceServerPort = options.port || 5080;
   var audienceClients = [];
-
+  
+  var headers = {'host': srcURL.hostname};
+  
+  if (!!options.headers) {
+    for (var h in options.headers) {
+      if (options.headers.hasOwnProperty(h)) {
+        headers[h] = options.headers[h];
+      }
+    }
+  }
+  
   // Starting the stream on from the source
   var request = srcClient.request('GET', srcURL.pathname +
   (srcURL.search ? srcURL.search : ""),
-  {'host': srcURL.hostname});
+  headers);
   request.end();
   request.on('response', function (srcResponse) {
     /** Setup Audience server listener **/

@@ -30,6 +30,10 @@ Options:
 
   The destination port. Defaults to `5080`.
 
+- *headers*
+
+  Optional headers (e.g. for the authorization).
+
 ## TODO
 
 - Add a resource URL so that it can serve on certain resource URLs rather than require its onw http.Server instance.
