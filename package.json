@@ -1,0 +1,12 @@
+{
+  "name" : "mjpeg-proxy",
+  "version" : "0.1.0",
+  "homepage" : "https://github.com/prop/node-mjpeg-proxy",
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/prop/node-mjpeg-proxy.git"
+  },
+  "main" : "lib/node-mjpeg-proxy",
+  "dependencies" : {
+  }
+}
