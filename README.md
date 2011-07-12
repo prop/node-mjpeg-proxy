@@ -5,7 +5,7 @@ This is a simple implementation of a MJPEG proxy written with node.js.
 
 ## Documentation
 
-### Single source example
+### Multiple sources example
 	var mjpegproxy = require("mjpeg-proxy");
 	var map = [
 	  {
@@ -29,7 +29,7 @@ This is a simple implementation of a MJPEG proxy written with node.js.
 
 	mjpegproxy.createProxy("http://192.1.2.3:8080/videofeed");
 	
-### Multiple sources example
+### Single source example
 
     var mjpegproxy = require("mjpeg-proxy");
     mjpegproxy.createProxy("http://192.1.2.3:8080/videofeed");
