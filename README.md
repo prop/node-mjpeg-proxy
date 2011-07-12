@@ -5,16 +5,41 @@ This is a simple implementation of a MJPEG proxy written with node.js.
 
 ## Documentation
 
-### Example Usage
+### Single source example
+	var mjpegproxy = require("mjpeg-proxy");
+	var map = [
+	  {
+	    "out" : "clip1",
+	    "in" : {
+	      "host" : "example1.com",
+	      "port" : "8080",
+	      "path" : "clip1.mjpeg"
+	    }
+	  },
+	  {
+	    "out" : "clip2",
+	    "in" : {
+	      "host" : "example2.com",
+	      "path" : "clip2.mjpeg",
+	      "user" : "foo",
+	      "password" : "bar"
+	    }
+	  }
+	];
 
-    var mpjegproxy = require("./lib/node-mjpeg-proxy");
-    mpjegproxy.createProxy("http://192.1.2.3:8080/videofeed");
+	mjpegproxy.createProxy("http://192.1.2.3:8080/videofeed");
+	
+### Multiple sources example
+
+    var mjpegproxy = require("mjpeg-proxy");
+    mjpegproxy.createProxy("http://192.1.2.3:8080/videofeed");
 
 Here, it will create a proxy to the source video feed (http://192.1.2.3:8080/videofeed) with the default options (below). You can now access the feed at http://localhost:5080/ .
 
 ### Proxy
 
     Proxy.createProxy(sourceURL, [options]);
+    Proxy.createProxy(map, [options]);
 
 Returns: a `Proxy` instance.
 
@@ -23,6 +48,11 @@ Arguments:
 - *sourceURL*
 
   The source URL of the MJPEG feed to be proxied.
+
+- *map* 
+  
+  Multiple sources map. See [example] (examples/map-example.json)
+
 
 Options:
 
@@ -36,7 +66,7 @@ Options:
 
 ## TODO
 
-- Add a resource URL so that it can serve on certain resource URLs rather than require its onw http.Server instance.
+- Stop receiving original stream while no clients request it
 
 ## Credits
 
