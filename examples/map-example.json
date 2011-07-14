@@ -1,19 +1,4 @@
-[
-  {
-    "out" : "clip1",
-    "in" : {
-      "host" : "example1.com",
-      "port" : "8080",
-      "path" : "clip1.mjpeg"
-    }
-  },
-  {
-    "out" : "clip2",
-    "in" : {
-      "host" : "example2.com",
-      "path" : "clip2.mjpeg",
-      "user" : "foo",
-      "password" : "bar"
-    }
-  }
-]
+{
+    "cam1" : "http://example1.com:8080/cam1",
+    "cam2" : "http://foo:bar@example2.com/cam2"
+}

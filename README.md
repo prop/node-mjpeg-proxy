@@ -7,25 +7,11 @@ This is a simple implementation of a MJPEG proxy written with node.js.
 
 ### Multiple sources example
 	var mjpegproxy = require("mjpeg-proxy");
-	var map = [
-	  {
-	    "out" : "clip1",
-	    "in" : {
-	      "host" : "example1.com",
-	      "port" : "8080",
-	      "path" : "clip1.mjpeg"
-	    }
-	  },
-	  {
-	    "out" : "clip2",
-	    "in" : {
-	      "host" : "example2.com",
-	      "path" : "clip2.mjpeg",
-	      "user" : "foo",
-	      "password" : "bar"
-	    }
-	  }
-	];
+	var map = {
+    	"cam1" : "http://example1.com:8080/cam1",
+    	"cam2" : "http://foo:bar@example2.com/cam2"
+    };
+
 
 	mjpegproxy.createProxy("http://192.1.2.3:8080/videofeed");
 	
